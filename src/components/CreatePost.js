@@ -1,14 +1,16 @@
-import { setPersistence } from 'firebase/auth';
+import { setPersistence }  from 'firebase/auth';
 import React, { useState } from 'react';
+import { useNavigate }     from 'react-router-dom';
 import "./CreatePost.css";
 
 const CreatePost = () => {
-  const [title, setTitle]       = useState();
+  const [title,    setTitle]    = useState();
   const [postText, setPostText] = useState();
+  
+  const navigate = useNavigate();
 
   const createPost = () => {
-    console.log(title)
-    console.log(postText)
+    navigate('/');
   }
 
   return (
