@@ -1,9 +1,26 @@
-import React from 'react'
+import React           from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Logout = () => {
+import { signOut } from 'firebase/auth'
+import { auth }    from '../firebase'
+
+
+const Logout = ({ setIsAuth }) => {
+  const navigate = useNavigate();
+  const logout = () => {
+    // ログアウト
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      navigate("/login");
+    })
+  }
   return (
-    <div>Logout</div>
+    <div>
+      <p>ログアウトする</p>
+      <button onClick={logout}>ログアウト</button>
+    </div>
   )
 }
 
-export default Logout
+export default Logout;
