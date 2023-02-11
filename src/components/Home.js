@@ -18,7 +18,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "posts", id));
-    window.history.go();
+    window.location.href = "/";
   }
 
   return (
