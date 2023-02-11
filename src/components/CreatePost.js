@@ -21,7 +21,6 @@ const CreatePost = () => {
         id:       auth.currentUser.uid
       }
     })
-
     navigate('/');
   };
 
